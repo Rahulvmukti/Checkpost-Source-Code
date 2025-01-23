@@ -1,0 +1,44 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.Master.cs" Inherits="exam.Main" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta property="og:title" content="<%= ConfigurationManager.AppSettings["tabtitle"].ToString() %>" />
+     
+    <link rel="icon" type="image/png" sizes="32x32" href="Images/favicon-32x32.png">
+   <link rel="icon" type="image/png" sizes="96x96" href="Images/favicon-96x96.png">
+   <link rel="icon" type="image/png" sizes="16x16" href="Images/favicon-16x16.png">
+    <title><%= ConfigurationManager.AppSettings["tabtitle"] %></title>  
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    
+</head>
+<body class="jsNavbarToggle is-close flex-col bg-white">
+      <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    </asp:ContentPlaceHolder>
+    <form id="form2" runat="server">  
+        <style>
+            body {
+                background: url(<%=ConfigurationManager.AppSettings["LoginBackgroundImage"].ToString()%>) no-repeat !important;
+            }
+             .login-page{
+               /*  padding:148px 38%!important;*/
+                 background-color:none!important;
+            }
+             
+        </style>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="bodywrap col-md-12">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="electionflc" Class="dataclsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=live.vmukti.com;Initial Catalog=electionflc;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="connectionstr" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.adminlogin" Member="adminlogins">
+    <Type Name="adminlogin">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="admin_user" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="admin_pwd" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="isenable" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="identifier" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.streamlist" Member="streamlists">
+    <Type Name="streamlist">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="prourl" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="deviceid" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="streamname" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="servername" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="schoolid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="status" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="stateID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsEnable" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="isLive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="hasalarm" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="lastseen" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="stop" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="isdownload" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="isvod" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="selected" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="statusFlag" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="streamnamebkp" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.streamstatus" Member="streamstatus">
+    <Type Name="streamstatus">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="streamid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="streamname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="deviceid" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="statustime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.operator_info" Member="operator_infos">
+    <Type Name="operator_info">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="operatorName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="operatorNumber" Type="System.Decimal" DbType="Decimal(10,0)" CanBeNull="true" />
+      <Column Name="operatorAltNumber" Type="System.Decimal" DbType="Decimal(10,0)" CanBeNull="true" />
+      <Column Name="district" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="stateid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="operatorName_alt" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.district" Member="districts">
+    <Type Name="district">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="stateid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="district" Member="district1" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="accode" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="acname" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="isenable" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.state" Member="states">
+    <Type Name="state">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="statename" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="isdisplay" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="stcode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dashboard" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="mincount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="state_user" Member="users" ThisKey="id" OtherKey="stateID" Type="user" />
+    </Type>
+  </Table>
+  <Table Name="dbo.static_count" Member="static_counts">
+    <Type Name="static_count">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="staticcount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="isenable" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="dist_name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.users" Member="users">
+    <Type Name="user">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="username" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="usercode" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="identifier" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsEnable" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="isDvr" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="stateID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="islogin" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="chklogin" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="logincount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="logincountenable" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="state_user" Member="state" ThisKey="stateID" OtherKey="id" Type="state" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.streamstatustest" Member="streamstatustests">
+    <Type Name="streamstatustest">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="streamid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="streamname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="deviceid" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="statustime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.booth" Member="booths">
+    <Type Name="booth">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="streamid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="operatorid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="district" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="accode" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="acname" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="PSNum" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="location" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="boothstateid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="isdisplay" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="updatedBy" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="updatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="updatedFrom" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="longitude" Type="System.Decimal" DbType="Decimal(12,9) NOT NULL" CanBeNull="false" />
+      <Column Name="latitude" Type="System.Decimal" DbType="Decimal(12,9) NOT NULL" CanBeNull="false" />
+      <Column Name="bkpstreamid" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="selbooth" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
