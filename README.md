@@ -1,4 +1,4 @@
-# Election Survaliance Application
+# Election Checkpost Survaliance Application
 
 ## Overview
 This project is an ASP.NET Web Application built with [ASP.NET Framework](https://dotnet.microsoft.com/en-us/apps/aspnet) that provides [describe the functionality of your application here]. It includes features such as [list key features like authentication, CRUD operations, API integration, etc.].
